@@ -29,6 +29,7 @@ import { Reveal, Stagger, staggerItem } from "@/components/Reveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MagneticButton } from "@/components/MagneticButton";
 import { categories, services, destinations, testimonials, faqs } from "@/data/holidaypa";
+import heroCoastal from "@/assets/hero-coastal.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +45,17 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Trusted local chefs, spas, experiences and transfers for your holiday rental.",
       },
+      { property: "og:image", content: heroCoastal },
+      { property: "og:url", content: "https://holidaypa.com" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:image", content: heroCoastal },
+      { name: "twitter:title", content: "Holiday PA — Your stay, fully serviced" },
+      {
+        name: "twitter:description",
+        content: "Trusted local chefs, spas, experiences and transfers for your holiday rental.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://holidaypa.com" }],
   }),
   component: Home,
 });

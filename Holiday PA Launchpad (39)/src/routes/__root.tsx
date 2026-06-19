@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -38,10 +37,9 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error(error);
   }, [error]);
 
   return (
@@ -93,8 +91,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Trusted local chefs, spas, experiences and transfers for your holiday rental.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://holidaypa.com" },
+      { property: "og:site_name", content: "Holiday PA" },
+      { property: "og:locale", content: "en_GB" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@theholiday_pa" },
+      { name: "twitter:title", content: "Holiday PA — Your stay, fully serviced" },
+      {
+        name: "twitter:description",
+        content: "Trusted local chefs, spas, experiences and transfers for your holiday rental.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -104,6 +110,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
       },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "canonical", href: "https://holidaypa.com" },
     ],
   }),
   shellComponent: RootShell,

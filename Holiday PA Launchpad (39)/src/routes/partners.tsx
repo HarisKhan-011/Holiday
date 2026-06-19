@@ -23,7 +23,17 @@ export const Route = createFileRoute("/partners")({
         property: "og:description",
         content: "Embed Holiday PA and unlock new revenue from guest services.",
       },
+      { property: "og:image", content: partnersHero },
+      { property: "og:url", content: "https://holidaypa.com/partners" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:image", content: partnersHero },
+      { name: "twitter:title", content: "For Partners — Holiday PA" },
+      {
+        name: "twitter:description",
+        content: "Embed Holiday PA and unlock new revenue from guest services.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://holidaypa.com/partners" }],
   }),
   component: PartnersPage,
 });

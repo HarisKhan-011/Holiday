@@ -36,8 +36,20 @@ export const Route = createFileRoute("/services/$id")({
         { name: "description", content: s?.description.slice(0, 155) ?? "Book a local service for your holiday rental." },
         { property: "og:title", content: s ? `${s.title} — Holiday PA` : "Holiday PA" },
         { property: "og:description", content: s?.description.slice(0, 155) ?? "" },
-        ...(s ? [{ property: "og:image", content: s.image }] : []),
+        { property: "og:type", content: "website" },
+        ...(s
+          ? [
+              { property: "og:image", content: s.image },
+              { property: "og:url", content: `https://holidaypa.com/services/${s.id}` },
+              { name: "twitter:image", content: s.image },
+              { name: "twitter:title", content: `${s.title} — Holiday PA` },
+              { name: "twitter:description", content: s.description.slice(0, 155) },
+            ]
+          : []),
       ],
+      links: s
+        ? [{ rel: "canonical", href: `https://holidaypa.com/services/${s.id}` }]
+        : [],
     };
   },
   notFoundComponent: () => (

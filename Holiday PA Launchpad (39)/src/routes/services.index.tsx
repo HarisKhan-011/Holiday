@@ -7,6 +7,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { Reveal, staggerItem } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { categories, services } from "@/data/holidaypa";
+import heroCoastal from "@/assets/hero-coastal.jpg";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -19,7 +20,14 @@ export const Route = createFileRoute("/services/")({
       },
       { property: "og:title", content: "Browse Services — Holiday PA" },
       { property: "og:description", content: "Trusted local services for your holiday rental." },
+      { property: "og:image", content: heroCoastal },
+      { property: "og:url", content: "https://holidaypa.com/services" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:image", content: heroCoastal },
+      { name: "twitter:title", content: "Browse Services — Holiday PA" },
+      { name: "twitter:description", content: "Trusted local services for your holiday rental." },
     ],
+    links: [{ rel: "canonical", href: "https://holidaypa.com/services" }],
   }),
   component: ServicesPage,
 });

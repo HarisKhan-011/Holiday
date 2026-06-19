@@ -20,7 +20,13 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Holiday PA" },
       { property: "og:description", content: "The story and mission behind Holiday PA." },
       { property: "og:image", content: aboutEditorial },
+      { property: "og:url", content: "https://holidaypa.com/about" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:image", content: aboutEditorial },
+      { name: "twitter:title", content: "About Holiday PA" },
+      { name: "twitter:description", content: "The story and mission behind Holiday PA." },
     ],
+    links: [{ rel: "canonical", href: "https://holidaypa.com/about" }],
   }),
   component: AboutPage,
 });

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import heroCoastal from "@/assets/hero-coastal.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,7 +18,14 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact Holiday PA" },
       { property: "og:description", content: "Reach the Holiday PA concierge team." },
+      { property: "og:image", content: heroCoastal },
+      { property: "og:url", content: "https://holidaypa.com/contact" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:image", content: heroCoastal },
+      { name: "twitter:title", content: "Contact Holiday PA" },
+      { name: "twitter:description", content: "Reach the Holiday PA concierge team." },
     ],
+    links: [{ rel: "canonical", href: "https://holidaypa.com/contact" }],
   }),
   component: ContactPage,
 });
