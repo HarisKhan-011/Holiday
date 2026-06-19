@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm ci --prefix \"Holiday PA Launchpad (39)\"",
+  "buildCommand": "npm run build --prefix \"Holiday PA Launchpad (39)\" && mkdir -p .vercel && cp -R \"Holiday PA Launchpad (39)/.vercel/output\" .vercel/output"
+}
